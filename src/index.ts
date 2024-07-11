@@ -1,4 +1,3 @@
 import {Fn} from "./reactTest";
 
-Fn()
-Fn()
+Fn(3)
