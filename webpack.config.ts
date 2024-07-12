@@ -1,32 +1,23 @@
 import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
+import {buildPlugins} from "./config/build/buildPlugins";
+import {buildLoaders} from "./config/build/buildLoaders";
+import {buildResolvers} from "./config/build/buildResolvers";
 
 const config: webpack.Configuration = {
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     mode: 'development',
     module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
-        ],
+        rules: buildLoaders(),
     },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
+    resolve: buildResolvers(),
     output: {
         filename: '[contenthash].[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
 
     },
-    plugins: [
-        new HtmlWebpackPlugin({template: path.resolve(__dirname, 'public', 'index.html')}),
-        new webpack.ProgressPlugin()
-    ],
+    plugins: buildPlugins(),
 };
 
 export default config;
