@@ -8,5 +8,14 @@ export const buildLoaders = (): webpack.RuleSetRule[] => {
         exclude: /node_modules/,
     }
 
-    return [tsloader]
+    const scssloaders = {
+        test: /\.s[ac]ss$/i,
+        use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader",
+        ]
+    }
+
+    return [tsloader, scssloaders]
 }

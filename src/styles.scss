@@ -1,0 +1,27 @@
+// Variables
+$background-color: #edd870;
+$text-color: #d34646;
+$font-family: Arial, sans-serif;
+
+// Global Styles
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  font-family: $font-family;
+  color: $text-color;
+}
+
+// Root Element Styles
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  div {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #7a5b5b;
+  }
+}
